@@ -11,7 +11,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   <meta name="keywords" content=", 硬件算法实现, 三角函数, FPGA">
-  <meta name="description" content="综述CORDIC(COordinate Rotatio...">
+  <meta name="description" content="$2^2$
+综述CORDIC(COordinate R...">
   <meta name="author" content="Yiyang Liu">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -193,13 +194,14 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 11, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>592</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>598</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a><strong>综述</strong></h2><p>CORDIC(COordinate Rotation DIgital Computer)，中文名坐标旋转数字算法，也被叫做Volder’s algorithm。此算法给出了一种用加减，移位运算代替乘法除法开方计算三角函数的方法，加速了数字(RTL)电路运算中的三角函数运算。</p>
+        <p>$2^2$</p>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a><strong>综述</strong></h2><p>CORDIC(COordinate Rotation DIgital Computer)，中文名坐标旋转数字算法，也被叫做Volder’s algorithm。此算法给出了一种用加减，移位运算代替乘法除法开方计算三角函数的方法，加速了数字(RTL)电路运算中的三角函数运算。</p>
 <h2 id="旋转模式下的CORDIC"><a href="#旋转模式下的CORDIC" class="headerlink" title="旋转模式下的CORDIC"></a><strong>旋转模式下的CORDIC</strong></h2><p>设有一点A，其坐标为(cos$\alpha$,sin$\alpha$),则向量$\vec{OA}$与positive x-axis的夹角为$\alpha$,将其逆时针旋转$\beta$至点B，则$\vec{OB}$与positive x-axis的夹角为$\alpha+\beta$，此时B点坐标为：(cos$\alpha+\beta$,sin$\alpha+\beta$)，将其展开可得:</p>
 <script type="math/tex; mode=display">\begin{cases}
     x_B= cos\alpha cos\beta-sin\alpha sin\beta =  cos\beta(x_A-y_a tan\beta)\\
@@ -300,6 +302,21 @@
 
   
   
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
