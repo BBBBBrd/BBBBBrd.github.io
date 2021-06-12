@@ -6,12 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CORDIC算法 - Brandon Liu 的 Blog</title>
+  <title> - Brandon Liu 的 Blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
-  <meta name="keywords" content=", 硬件算法实现, 三角函数, FPGA">
-  <meta name="description" content="综述CORDIC(COordinate Rotatio...">
+  
+  
   <meta name="author" content="Yiyang Liu">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -132,28 +132,6 @@
     
 
 
-  <nav class="navbar">
-    <div class="left">
-      
-        <i class="iconfont iconhome j-navbar-back-home"></i>
-      
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-    </div>
-    <div class="center">CORDIC算法</div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
-
   
   
 
@@ -187,40 +165,32 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/Post/CORDIC.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">CORDIC算法</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 11, 2021</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 12, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>592</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>53</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a><strong>综述</strong></h2><p>CORDIC(COordinate Rotation DIgital Computer)，中文名坐标旋转数字算法，也被叫做Volder’s algorithm。此算法给出了一种用加减，移位运算代替乘法除法开方计算三角函数的方法，加速了数字(RTL)电路运算中的三角函数运算。</p>
-<h2 id="旋转模式下的CORDIC"><a href="#旋转模式下的CORDIC" class="headerlink" title="旋转模式下的CORDIC"></a><strong>旋转模式下的CORDIC</strong></h2><p>设有一点A，其坐标为(cos$\alpha$,sin$\alpha$),则向量$\vec{OA}$与positive x-axis的夹角为$\alpha$,将其逆时针旋转$\beta$至点B，则$\vec{OB}$与positive x-axis的夹角为$\alpha+\beta$，此时B点坐标为：(cos$\alpha+\beta$,sin$\alpha+\beta$)，将其展开可得:</p>
-<script type="math/tex; mode=display">\begin{cases}
-    x_B= cos\alpha cos\beta-sin\alpha sin\beta =  cos\beta(x_A-y_a tan\beta)\\
-    y_B= sin\alpha cos\beta+cos\alpha sin\beta =  cos\beta(y_A+x_a tan\beta)
-    \end{cases}</script><p>此时，使$\beta = \sum^\infty_{i=0} \beta_i$,则第i+1次迭代之后的点坐标为：$$</p>
-
+        google-site-verification: google88643a8a0f8bccc2.html
       </section>
       <section class="extra">
         
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>Yiyang Liu</li>
-    <li><strong>本文链接：</strong><a href="http://brdnoblog.com/2021/06/11/Cordic/index.html" title="http:&#x2F;&#x2F;brdnoblog.com&#x2F;2021&#x2F;06&#x2F;11&#x2F;Cordic&#x2F;index.html">http:&#x2F;&#x2F;brdnoblog.com&#x2F;2021&#x2F;06&#x2F;11&#x2F;Cordic&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://brdnoblog.com/google88643a8a0f8bccc2.html" title="http:&#x2F;&#x2F;brdnoblog.com&#x2F;google88643a8a0f8bccc2.html">http:&#x2F;&#x2F;brdnoblog.com&#x2F;google88643a8a0f8bccc2.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
         
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li></ul> 
-
         
       </section>
       
@@ -232,7 +202,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0"><span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84CORDIC"><span class="toc-text">旋转模式下的CORDIC</span></a></li></ol>
+    
   </aside>
 
         
