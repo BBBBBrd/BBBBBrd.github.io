@@ -193,7 +193,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 11, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2269</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2241</span>
     </div>
   </div>
 </section>
@@ -214,7 +214,6 @@
     x_{i+1}=cos\beta_i(x_i-d_iy_i 2^{-i})\\
     y_{i+1}=cos\beta_i(y_i+d_ix_i 2^{-i})
     \end{cases}</script><p>另因为多次旋转之后，B点坐标前带有系数$z_n=\prod_{i=0}^m cos\beta_i$，故当点A为($\frac{1}{z_n}$,0)时，m次迭代之后的坐标在单位圆上，此时迭代之后的B点坐标即为($cos\beta,sin\beta$)。</p>
-<p><img    class="lazyload" data-original="BBBBBrd.github.io/images/postimage/cordic_rotationkernel.gif" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICiteration</span></p>
 <h2 id="例：旋转57-535°，迭代次数3"><a href="#例：旋转57-535°，迭代次数3" class="headerlink" title="例：旋转57.535°，迭代次数3"></a><strong>例：旋转57.535°，迭代次数3</strong></h2><p>当所需旋转的角度($\beta$)为57.535°时,若迭代次数为3：<br>$\beta_1=tan^{-1}(2^{-1})=45°$<br>$\beta_2=tan^{-1}(2^{-2})=26.565°$<br>$\beta_3=tan^{-1}(-2^{-3})=-14.03°$</p>
 <p>令：$m=3,z_n=\prod_{i=0}^3cos\beta_i$,当点A为($\frac{1}{z_n}$,0)时，</p>
 <script type="math/tex; mode=display">\begin{cases}
@@ -222,7 +221,7 @@
     B_2=\frac{1}{cos(\beta_3)}\left[\begin{matrix} \frac{1}{z_n}-\frac{2^{-1}2^{-2}}{z_n} \\ \frac{2^{-1}}{z_n}+\frac{2^{-2}}{z_n} \end{matrix} \right] \\
     B_3=\left[\begin{matrix} \frac{1}{z_n}-\frac{2^{-1}2^{-2}}{z_n}+\frac{2^{-1}2^{-3}}{z_n}+\frac{2^{-2}2^{-3}}{z_n} \\ \frac{2^{-1}}{z_n}+\frac{2^{-2}}{z_n}- \frac{2^{-3}}{z_n}+\frac{2^{-1}2^{-2}2^{-3}}{z_n}\end{matrix} \right]
     \end{cases}</script><p>此时$B_3$的坐标即为$(cos(57.535),sin(57.535))$，而在$B_3$的坐标式中，没有任何乘法计算，CORDIC算法成功将三角函数计算转换成为了加减法移位运算，其中$z_n$和$\frac{1}{z_n}$的计算可通过LUT解决。</p>
-<h2 id="Matlab中的cordicsincos"><a href="#Matlab中的cordicsincos" class="headerlink" title="Matlab中的cordicsincos"></a><strong>Matlab中的<code>cordicsincos</code></strong></h2><p><img    class="lazyload" data-original="images\postimage\cordic_rotationkernel.gif" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICkernel</span><br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/fixedpoint/ref/cordicsincos.html">Matlab Documentation Link</a><br>在Matlab中，函数<code>cordicsincos(theta,niters)</code>为利用CORDIC算法计算$sin,cos$值的函数,其中<code>theta</code>为所需的角度，取值范围($-2\pi,2\pi$)，<code>niters</code>为迭代次数，在定点数运算时，最大值为word length of theta-1；在浮点数运算时，最大值为52(双精度)或23(单精度)，函数输出为$[sin\theta,cos\theta]$。</p>
+<h2 id="Matlab中的cordicsincos"><a href="#Matlab中的cordicsincos" class="headerlink" title="Matlab中的cordicsincos"></a><strong>Matlab中的<code>cordicsincos</code></strong></h2><p><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/fixedpoint/ref/cordicsincos.html">Matlab Documentation Link</a><br>在Matlab中，函数<code>cordicsincos(theta,niters)</code>为利用CORDIC算法计算$sin,cos$值的函数,其中<code>theta</code>为所需的角度，取值范围($-2\pi,2\pi$)，<code>niters</code>为迭代次数，在定点数运算时，最大值为word length of theta-1；在浮点数运算时，最大值为52(双精度)或23(单精度)，函数输出为$[sin\theta,cos\theta]$。</p>
 
       </section>
       <section class="extra">
