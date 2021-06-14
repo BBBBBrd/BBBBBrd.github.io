@@ -193,7 +193,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 11, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1207</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2272</span>
     </div>
   </div>
 </section>
@@ -204,18 +204,26 @@
 <script type="math/tex; mode=display">\begin{cases}
     x_B= cos\alpha cos\beta-sin\alpha sin\beta =  cos\beta(x_A-y_A tan\beta)\\
     y_B= sin\alpha cos\beta+cos\alpha sin\beta =  cos\beta(y_A+x_A tan\beta)
-    \end{cases}</script><p>此时，使$\beta = \sum^\infty_{i=0} \beta_i$,则第i+1次迭代之后的点坐标为(忽略$cos\beta$)：</p>
+    \end{cases}</script><p>此时，使$\beta = \sum^\infty_{i=0} \beta_i$,则第i+1次迭代之后的点坐标为：</p>
 <script type="math/tex; mode=display">\begin{cases}
-    x_{i+1}=cos\beta(x_i-y_i tan\beta_i)\\
-    y_{i+1}=cos\beta(y_i+x_i tan\beta_i)
-    \end{cases}</script><p>使$\beta_i=ntan(2^{-i})$,则$\times tan(2^{-i})$为加减移位运算但同时还需计算$\times cos\beta$。</p>
-<p>注：当顺时针旋转时，$n=1$，即$\beta_i=tan(-2^{-i})$；<br>    当逆时针旋转时，$n=-1$，即$\beta_i=tan(2^{-i})$。</p>
-<h2 id="例：旋转57-535°"><a href="#例：旋转57-535°" class="headerlink" title="例：旋转57.535°"></a><strong>例：旋转57.535°</strong></h2><p>当所需旋转的角度($\beta$)为57.535°时：<br>$tan^{-1}(2^{-1})=45°$<br>$tan^{-1}(2^{-2})=26.565°$<br>$tan^{-1}(-2^{-3})=-14.03°$</p>
-<p>且$45+26.565-14.03=57.535$，故当点A为(0,1)时，进行三次旋转后的坐标为：</p>
+    x_{i+1}=cos\beta_i(x_i-d_iy_i tan\beta_i)\\
+    y_{i+1}=cos\beta_i(y_i+d_ix_i tan\beta_i)
+    \end{cases}</script><p>注：当顺时针旋转时，$d_i=-1$，逆时针旋转时，$d_i=1$。</p>
+<p>使$2^{-i}=tan(\beta_i)$，则$\times tan(\beta_i)$为加减移位运算($\times 2^{-1}$等同于将数据右移一位 i.e.$\frac{1110_2}{10_2}=111_2$)，此时，B点坐标方程等价于：</p>
 <script type="math/tex; mode=display">\begin{cases}
-    x_3 = cos(45)cos(26.565)cos(-14.03)(1)(1)(1) =cos\beta\\
-    y_3 = cos(45)cos(26.565)cos(-14.03)(-2^{-3})(2^{-2})(2^{-1})=sin\beta
-    \end{cases}</script>
+    x_{i+1}=cos\beta_i(x_i-d_iy_i 2^{-i})\\
+    y_{i+1}=cos\beta_i(y_i+d_ix_i 2^{-i})
+    \end{cases}</script><p>另因为多次旋转之后，B点坐标前带有系数$z_n=\prod_{i=0}^m cos\beta_i$，故当点A为($\frac{1}{z_n}$,0)时，m次迭代之后的坐标在单位圆上，此时迭代之后的B点坐标即为($cos\beta,sin\beta$)。</p>
+<p><img    class="lazyload" data-original="\postimage\cordiciteration.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICiteration</span></p>
+<h2 id="例：旋转57-535°，迭代次数3"><a href="#例：旋转57-535°，迭代次数3" class="headerlink" title="例：旋转57.535°，迭代次数3"></a><strong>例：旋转57.535°，迭代次数3</strong></h2><p>当所需旋转的角度($\beta$)为57.535°时,若迭代次数为3：<br>$\beta_1=tan^{-1}(2^{-1})=45°$<br>$\beta_2=tan^{-1}(2^{-2})=26.565°$<br>$\beta_3=tan^{-1}(-2^{-3})=-14.03°$</p>
+<p>令：$m=3,z_n=\prod_{i=0}^3cos\beta_i$,当点A为($\frac{1}{z_n}$,0)时，</p>
+<script type="math/tex; mode=display">\begin{cases}
+    B_1=\frac{1}{cos(\beta_2)cos(\beta_3)}\left[\begin{matrix} \frac{1}{z_n} \\ \frac{2^{-1}}{z_n} \end{matrix} \right]\\
+    B_2=\frac{1}{cos(\beta_3)}\left[\begin{matrix} \frac{1}{z_n}-\frac{2^{-1}2^{-2}}{z_n} \\ \frac{2^{-1}}{z_n}+\frac{2^{-2}}{z_n} \end{matrix} \right] \\
+    B_3=\left[\begin{matrix} \frac{1}{z_n}-\frac{2^{-1}2^{-2}}{z_n}+\frac{2^{-1}2^{-3}}{z_n}+\frac{2^{-2}2^{-3}}{z_n} \\ \frac{2^{-1}}{z_n}+\frac{2^{-2}}{z_n}- \frac{2^{-3}}{z_n}+\frac{2^{-1}2^{-2}2^{-3}}{z_n}\end{matrix} \right]
+    \end{cases}</script><p>此时$B_3$的坐标即为$(cos(57.535),sin(57.535))$，而在$B_3$的坐标式中，没有任何乘法计算，CORDIC算法成功将三角函数计算转换成为了加减法移位运算，其中$z_n$和$\frac{1}{z_n}$的计算可通过LUT解决。</p>
+<h2 id="Matlab中的cordicsincos"><a href="#Matlab中的cordicsincos" class="headerlink" title="Matlab中的cordicsincos"></a><strong>Matlab中的<code>cordicsincos</code></strong></h2><p><img    class="lazyload" data-original="\postimage\cordic_rotationkernel.gif" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICiteration</span><br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/fixedpoint/ref/cordicsincos.html">Matlab Documentation Link</a><br>在Matlab中，函数<code>cordicsincos(theta,niters)</code>为利用CORDIC算法计算$sin,cos$值的函数,其中<code>theta</code>为所需的角度，取值范围($-2\pi,2\pi$)，<code>niters</code>为迭代次数，在定点数运算时，最大值为word length of theta-1；在浮点数运算时，最大值为52(双精度)或23(单精度)，函数输出为$[sin\theta,cos\theta]$。</p>
+
       </section>
       <section class="extra">
         
@@ -242,7 +250,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0"><span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84CORDIC"><span class="toc-text">旋转模式下的CORDIC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%EF%BC%9A%E6%97%8B%E8%BD%AC57-535%C2%B0"><span class="toc-text">例：旋转57.535°</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0"><span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84CORDIC"><span class="toc-text">旋转模式下的CORDIC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%EF%BC%9A%E6%97%8B%E8%BD%AC57-535%C2%B0%EF%BC%8C%E8%BF%AD%E4%BB%A3%E6%AC%A1%E6%95%B03"><span class="toc-text">例：旋转57.535°，迭代次数3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matlab%E4%B8%AD%E7%9A%84cordicsincos"><span class="toc-text">Matlab中的cordicsincos</span></a></li></ol>
   </aside>
 
         
