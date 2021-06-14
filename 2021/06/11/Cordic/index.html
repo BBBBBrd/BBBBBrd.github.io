@@ -214,7 +214,7 @@
     x_{i+1}=cos\beta_i(x_i-d_iy_i 2^{-i})\\
     y_{i+1}=cos\beta_i(y_i+d_ix_i 2^{-i})
     \end{cases}</script><p>另因为多次旋转之后，B点坐标前带有系数$z_n=\prod_{i=0}^m cos\beta_i$，故当点A为($\frac{1}{z_n}$,0)时，m次迭代之后的坐标在单位圆上，此时迭代之后的B点坐标即为($cos\beta,sin\beta$)。</p>
-<p><img    class="lazyload" data-original="images\postimages\cordiciteration.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICiteration</span></p>
+<p><img    class="lazyload" data-original="BBBBBrd.github.io/images/postimage/cordic_rotationkernel.gif" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">CORDICiteration</span></p>
 <h2 id="例：旋转57-535°，迭代次数3"><a href="#例：旋转57-535°，迭代次数3" class="headerlink" title="例：旋转57.535°，迭代次数3"></a><strong>例：旋转57.535°，迭代次数3</strong></h2><p>当所需旋转的角度($\beta$)为57.535°时,若迭代次数为3：<br>$\beta_1=tan^{-1}(2^{-1})=45°$<br>$\beta_2=tan^{-1}(2^{-2})=26.565°$<br>$\beta_3=tan^{-1}(-2^{-3})=-14.03°$</p>
 <p>令：$m=3,z_n=\prod_{i=0}^3cos\beta_i$,当点A为($\frac{1}{z_n}$,0)时，</p>
 <script type="math/tex; mode=display">\begin{cases}
