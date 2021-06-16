@@ -193,7 +193,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 16, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>934</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>937</span>
     </div>
   </div>
 </section>
@@ -204,7 +204,7 @@
 <h2 id="定点数计算"><a href="#定点数计算" class="headerlink" title="定点数计算"></a><strong>定点数计算</strong></h2><p>定点数相加时，将两数二进制的小数点对齐，直接相加；<br>定点数相减时，将减数化为补码后相加。</p>
 <p>定点数乘法与普通小数乘法一致，但在相加前进行补位，将加数左侧对齐。</p>
 <h2 id="Matlab-fi函数"><a href="#Matlab-fi函数" class="headerlink" title="Matlab fi函数"></a><strong>Matlab fi函数</strong></h2><p>在Matlab中，可使用<code>fi(v,s,w,f)</code>将数据化为定点数，其中:<br><code>v</code>为数据double值;<br><code>s</code>为signed或unsigned，值为<code>1/true</code>或<code>0/false</code>;<br><code>w,f</code>分别为Word length和Fraction length。</p>
-<p>对fi数据进行运算时，可设定函数<br><code>fimath(&#39;OverflowAction&#39;,&#39;RoundingMethod&#39;,&#39; ProductMode&#39;,&#39; SumMode&#39;,&#39;CastBeforeSum&#39;)</code><br>其中:<br><code>OverflowAction</code>为溢出处理方式，可选择<code>Saturate</code>或<code>Warp</code>;</p>
+<p>对fi数据进行运算时，可设定函数<br><code>fimath(&#39;OverflowAction&#39;,&#39;RoundingMethod&#39;,</code><br>    <code>&#39;ProductMode&#39;, &#39;SumMode&#39;,&#39;CastBeforeSum&#39;)</code><br>其中:<br><code>OverflowAction</code>为溢出处理方式，可选择<code>Saturate</code>或<code>Warp</code>;</p>
 <p><code>RoundingMethod</code>为数值修约，可以选择<code>Ceiling, Convergent, Floor, Nearest, Round, Zero</code>;</p>
 <p><code>ProductMode</code>和<code>SumMode</code>分别为加法和乘法精度设置，可选则<code>FullPrecision, KeepLSB, KeepMSB, SpecifyPrecision</code>;</p>
 <p><code>CastBeforeSum</code>为选择在加法之前或之后统一两数格式，可选为<code>1/true</code>或<code>0/false</code>。</p>
@@ -225,7 +225,7 @@
         
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA-Matlab/" rel="tag">FPGA, Matlab</a></li></ul> 
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li></ul> 
 
         
   <nav class="nav">
